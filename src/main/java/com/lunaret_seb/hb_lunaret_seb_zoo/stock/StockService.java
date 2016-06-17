@@ -42,20 +42,13 @@ public class StockService {
         
 		return selectedStock;
 	}
-	
+		
 	@DELETE
-	@Path("/stocks/delete/{id}")
+	@Path("/stocks/delete/")
 	@Consumes({ "application/json" })
-	public Response deleteStock(@PathParam("id") int id){
+	public Response deleteStock(Entity E){
 		return Response.status(Status.ACCEPTED).build();
 	}
-	
-//	@DELETE
-//	@Path("/stocks/delete/")
-//	@Consumes({ "application/json" })
-//	public Response deleteStock(Entity E){
-//		return Response.status(Status.ACCEPTED).build();
-//	}
 	
 	@PUT
 	@Path("/stocks/update/")
