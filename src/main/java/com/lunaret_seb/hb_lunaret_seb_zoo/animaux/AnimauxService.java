@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 @Path("/")
@@ -22,4 +23,19 @@ public class AnimauxService {
 
 		return listAnimaux;
 	}
+	
+	@GET
+	@Path("/animaux/{id}")
+	@Produces({"application/json"})
+	public Animaux detailAnimaux(@PathParam("id") int id){
+		
+		List<Animaux> listAnimaux = new ArrayList<Animaux>();
+		listAnimaux.add(new Animaux("kiki", "mouse", new Date("2016/05/05"), 1));
+		listAnimaux.add(new Animaux("mimi", "rat", new Date("2016/04/25"), 2));
+		listAnimaux.add(new Animaux("rififi", "capibara", new Date("2015/05/05"), 3));
+		
+		Animaux selectedAnimaux = listAnimaux.get(id-1);
+		return selectedAnimaux;
+	}
+	
 }
