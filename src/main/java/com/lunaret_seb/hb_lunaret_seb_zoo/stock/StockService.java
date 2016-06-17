@@ -31,7 +31,7 @@ public class StockService {
         listStock.add(new Stock("Viande",300,1000,2));
         listStock.add(new Stock("Poisson",120,700,3));
         
-        Stock selectedStock = listStock.get(id);
+        Stock selectedStock = listStock.get(id-1);
         
 		return selectedStock;
 	}
