@@ -1,10 +1,16 @@
 package com.lunaret_seb.hb_lunaret_seb_zoo.stock;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Stock {
 	private String name;
     private int quantities;
     private int maximum;
     private int id;
+    
+	public Stock() {
+	}
     
 	public Stock(String name, int quantities, int maximum, int id) {
 		this.name = name;
@@ -12,33 +18,29 @@ public class Stock {
 		this.maximum = maximum;
 		this.id = id;
 	}
-	@Override
-	public String toString() {
-		return name+" ("+quantities+")";
-	}
-
-	private String getName() {
+	
+	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
-	private int getQuantities() {
+	public int getQuantities() {
 		return quantities;
 	}
-	private void setQuantities(int quantities) {
+	public void setQuantities(int quantities) {
 		this.quantities = quantities;
 	}
-	private int getMaximum() {
+	public int getMaximum() {
 		return maximum;
 	}
-	private void setMaximum(int maximum) {
+	public void setMaximum(int maximum) {
 		this.maximum = maximum;
 	}
-	private int getId() {
+	public int getId() {
 		return id;
 	}
-	private void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
      
