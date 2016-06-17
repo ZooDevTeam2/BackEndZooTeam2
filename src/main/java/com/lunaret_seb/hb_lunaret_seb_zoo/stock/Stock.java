@@ -2,6 +2,8 @@ package com.lunaret_seb.hb_lunaret_seb_zoo.stock;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+//XmlRootElement is necessary to use this java class for xlm root element in xlm forms
+
 @XmlRootElement
 public class Stock {
 	private String name;
@@ -9,9 +11,11 @@ public class Stock {
     private int maximum;
     private int id;
     
+    //Empty constructor for the construction of xml
 	public Stock() {
 	}
     
+	//Specific constructor for all other creation
 	public Stock(String name, int quantities, int maximum, int id) {
 		this.name = name;
 		this.quantities = quantities;
