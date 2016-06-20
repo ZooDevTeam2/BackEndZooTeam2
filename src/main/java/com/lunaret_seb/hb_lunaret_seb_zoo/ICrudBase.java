@@ -1,6 +1,5 @@
 package com.lunaret_seb.hb_lunaret_seb_zoo;
 
-
 import java.util.List;
 
 public interface ICrudBase<T> {

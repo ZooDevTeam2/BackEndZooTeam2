@@ -3,6 +3,9 @@ package zoo.enclos;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateful;
+
+@Stateful
 public class EnclosManager implements IEnclos{
 	private static List<Enclos> EnclosList;
 
