@@ -15,11 +15,16 @@ import javax.ws.rs.core.Response;
 
 @Path("/")
 public class EnclosREST {
+	
+	@Inject
+	IEnclos DB;
+	
 	@GET
 	@Path("/Enclos")
 	@Produces({ "application/json" })
 	public Response getEnclos() {
-		List<Enclos> wrapThis = DB.getInstance().getAll();
+		//List<Enclos> wrapThis = DB.getInstance().getAll();
+		List<Enclos> wrapThis = DB.getAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 
@@ -27,7 +32,8 @@ public class EnclosREST {
 	@Path("/Enclos/{id}")
 	@Produces({ "application/json" })
 	public Response getEnclosById(@PathParam("id") int id) {
-		Enclos wrapThis = DB.getInstance().getByIndex(id);
+		//Enclos wrapThis = DB.getInstance().getByIndex(id);
+		Enclos wrapThis = DB.getByIndex(id);
 		return Response.status(200).entity(wrapThis).build();
 	}
 
@@ -37,8 +43,10 @@ public class EnclosREST {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response addEnclos(Enclos Obj) {
-		DB.getInstance().add(Obj);
-		List<Enclos> wrapThis = DB.getInstance().getAll();
+		//DB.getInstance().add(Obj);
+		//List<Enclos> wrapThis = DB.getInstance().getAll();
+		DB.add(Obj);
+		List<Enclos> wrapThis = DB.getAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 	
@@ -47,18 +55,22 @@ public class EnclosREST {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response updateEnclos(Enclos Obj,@PathParam("id") int id ) {
-		DB.getInstance().update(Obj, id);
-		List<Enclos> wrapThis = DB.getInstance().getAll();
+		//DB.getInstance().update(Obj, id);
+		//List<Enclos> wrapThis = DB.getInstance().getAll();
+		DB.update(Obj, id);
+		List<Enclos> wrapThis = DB.getAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 	
 	@DELETE
 	@Path("/Enclos/delete/{id}")
-	@Consumes("application/json")
+	//@Consumes("application/json")
 	@Produces("application/json")
-	public Response deleteEnclos(@PathParam("id") int id ) {
-		DB.getInstance().remove(id);
-		List<Enclos> wrapThis = DB.getInstance().getAll();
+	public Response deleteEnclos(@PathParam("id") int id ){
+		//DB.getInstance().remove(id);
+		//List<Enclos> wrapThis = DB.getInstance().getAll();
+		DB.remove(id);
+		List<Enclos> wrapThis = DB.getAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 }

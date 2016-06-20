@@ -1,6 +1,7 @@
 package zoo.enclos;
 
 public class Enclos {
+	
 	private String name;
 	private String area;
 	private String Description;
