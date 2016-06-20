@@ -2,18 +2,21 @@ package com.lunaret_seb.hb_lunaret_seb_zoo.animaux;
 
 import java.util.Date;
 
+import javax.ws.rs.Produces;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Animaux {
+public class Animaux  {
 
     private String name;
     private String specie;
     private Date dateOfBorn;
     private int id;
     
+
 	public Animaux() {
 	}
+    
 
 	public Animaux(String name, String specie, Date dateOfBorn, int id) {
 		this.name = name;

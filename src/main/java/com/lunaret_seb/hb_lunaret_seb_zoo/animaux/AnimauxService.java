@@ -1,9 +1,8 @@
 package com.lunaret_seb.hb_lunaret_seb_zoo.animaux;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
+import java.util.List;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,29 +18,23 @@ import javax.ws.rs.core.Response.Status;
 @Path("/")
 public class AnimauxService {
 
+	//renvoi une liste de tout les animaux
+	@Inject IAnimaux animauxMannager;
+
 	@GET
 	@Path("/animaux")
 	@Produces({ "application/json" })
 	public List<Animaux> listAnimaux() {
-		List<Animaux> listAnimaux = new ArrayList<Animaux>();
-		listAnimaux.add(new Animaux("kiki", "mouse", new Date("2016/05/05"), 1));
-		listAnimaux.add(new Animaux("mimi", "rat", new Date("2016/04/25"), 2));
-		listAnimaux.add(new Animaux("rififi", "capibara", new Date("2015/05/05"), 3));
 
-		return listAnimaux;
+		return animauxMannager.getAll();
 	}
 
 	@GET
 	@Path("/animaux/{id}")
 	@Produces({ "application/json" })
 	public Animaux detailAnimaux(@PathParam("id") int id) {
-
-		List<Animaux> listAnimauxForDetail = new ArrayList<Animaux>();
-		listAnimauxForDetail.add(new Animaux("kiki", "mouse", new Date("2016/05/05"), 1));
-		listAnimauxForDetail.add(new Animaux("mimi", "rat", new Date("2016/04/25"), 2));
-		listAnimauxForDetail.add(new Animaux("rififi", "capibara", new Date("2015/05/05"), 3));
-
-		Animaux selectedAnimaux = listAnimauxForDetail.get(id - 1);
+		
+		Animaux selectedAnimaux = animauxMannager.getAll().get(id - 1);
 		return selectedAnimaux;
 	}
 
@@ -51,7 +44,7 @@ public class AnimauxService {
 	public Response deleteAnimaux(@PathParam("id") int id) {
 		if (id < 4) {
 			return Response.status(Status.OK).build();
-		}else {
+		} else {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
 	}
