@@ -19,14 +19,14 @@ import javax.ws.rs.core.Response.Status;
 public class AnimauxService {
 
 	//renvoi une liste de tout les animaux
-	@Inject IAnimaux animauxMannager;
+	@Inject IAnimaux listAnimaux;
 
 	@GET
 	@Path("/animaux")
 	@Produces({ "application/json" })
 	public List<Animaux> listAnimaux() {
 
-		return animauxMannager.getAll();
+		return listAnimaux.getAll();
 	}
 
 	@GET
@@ -34,7 +34,7 @@ public class AnimauxService {
 	@Produces({ "application/json" })
 	public Animaux detailAnimaux(@PathParam("id") int id) {
 		
-		Animaux selectedAnimaux = animauxMannager.getAll().get(id - 1);
+		Animaux selectedAnimaux = listAnimaux.getByIndex(id - 1);
 		return selectedAnimaux;
 	}
 
