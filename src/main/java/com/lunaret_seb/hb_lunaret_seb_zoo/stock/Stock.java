@@ -9,14 +9,14 @@ public class Stock {
 	private String name;
     private int quantities;
     private int maximum;
-    private int id;
+    private long id;
     
     //Empty constructor for the construction of xml
 	public Stock() {
 	}
     
 	//Specific constructor for all other creation
-	public Stock(String name, int quantities, int maximum, int id) {
+	public Stock(String name, int quantities, int maximum, long id) {
 		this.name = name;
 		this.quantities = quantities;
 		this.maximum = maximum;
@@ -41,10 +41,10 @@ public class Stock {
 	public void setMaximum(int maximum) {
 		this.maximum = maximum;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
      

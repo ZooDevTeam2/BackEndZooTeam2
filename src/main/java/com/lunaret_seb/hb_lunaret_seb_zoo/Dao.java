@@ -7,12 +7,11 @@ public interface Dao<K,E> {
 
 	E findById(K id);
 
-	Collection<E> findAll();
-
 	void persist(E entity);
 
-	void update(E Entity);
 
-	void remove(int position);
+	void remove(E entity);
+	
+	Collection<E> findAll();
 
 }

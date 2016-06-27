@@ -24,7 +24,7 @@ import zoo.enclos.Enclos;
 public class StockService {
 	
 	@Inject
-	IStockManager stockManager;
+	StockDao stockManager;
 	
 	@GET
 	@Path("/stocks")
