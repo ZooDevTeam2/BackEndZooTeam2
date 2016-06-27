@@ -36,7 +36,7 @@ public class EnclosManager implements IEnclos{
 	 * @see zoo.enclos.IEJBDB#getAll()
 	 */
 	@Override
-	public List<Enclos> getAll() {
+	public List<Enclos> findAll() {
 		return EnclosList;
 	}
 

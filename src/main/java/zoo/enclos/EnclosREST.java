@@ -24,7 +24,7 @@ public class EnclosREST {
 	@Produces({ "application/json" })
 	public Response getEnclos() {
 		//List<Enclos> wrapThis = DB.getInstance().getAll();
-		List<Enclos> wrapThis = DB.getAll();
+		List<Enclos> wrapThis = DB.findAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 
@@ -45,8 +45,8 @@ public class EnclosREST {
 	public Response addEnclos(Enclos Obj) {
 		//DB.getInstance().add(Obj);
 		//List<Enclos> wrapThis = DB.getInstance().getAll();
-		DB.add(Obj);
-		List<Enclos> wrapThis = DB.getAll();
+		DB.persist(Obj);
+		List<Enclos> wrapThis = DB.findAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 	
@@ -58,7 +58,7 @@ public class EnclosREST {
 		//DB.getInstance().update(Obj, id);
 		//List<Enclos> wrapThis = DB.getInstance().getAll();
 		DB.update(Obj, id);
-		List<Enclos> wrapThis = DB.getAll();
+		List<Enclos> wrapThis = DB.findAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 	
@@ -70,7 +70,7 @@ public class EnclosREST {
 		//DB.getInstance().remove(id);
 		//List<Enclos> wrapThis = DB.getInstance().getAll();
 		DB.remove(id);
-		List<Enclos> wrapThis = DB.getAll();
+		List<Enclos> wrapThis = DB.findAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 }

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.lunaret_seb.hb_lunaret_seb_zoo.ICrudBase;
+import com.lunaret_seb.hb_lunaret_seb_zoo.Dao;
 
-public interface IAnimaux extends ICrudBase<Animaux>{
+public interface IAnimaux extends Dao<Animaux>{
 	
 
 }

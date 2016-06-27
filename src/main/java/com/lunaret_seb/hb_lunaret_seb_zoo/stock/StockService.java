@@ -24,14 +24,14 @@ import zoo.enclos.Enclos;
 public class StockService {
 	
 	@Inject
-	IStock stockManager;
+	IStockManager stockManager;
 	
 	@GET
 	@Path("/stocks")
 	@Produces({ "application/json" })
 	public List<Stock> getStocks(){
 		//For the moment, the list is hard written, we need the DB now ...
-		List<Stock> stockList = stockManager.getAll();
+		List<Stock> stockList = stockManager.findAll();
 		return stockList;
 	}
 	

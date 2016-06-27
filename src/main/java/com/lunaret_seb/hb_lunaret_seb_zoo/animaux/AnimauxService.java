@@ -26,7 +26,7 @@ public class AnimauxService {
 	@Produces({ "application/json" })
 	public List<Animaux> listAnimaux() {
 
-		return listAnimaux.getAll();
+		return listAnimaux.findAll();
 	}
 
 	@GET

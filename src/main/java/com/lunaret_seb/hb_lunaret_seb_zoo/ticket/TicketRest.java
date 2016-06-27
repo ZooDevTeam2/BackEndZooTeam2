@@ -16,7 +16,7 @@ public class TicketRest {
 	@Path("/tickets")
 	@Produces({ "application/json" })
 	public List<Ticket> getTicket() {
-		return DB.getAll();
+		return DB.findAll();
 	}
 	
 	@GET
@@ -31,7 +31,7 @@ public class TicketRest {
 	@Produces("application/json")
 	public Response deleteTicket(@PathParam("id") int id) {
 		DB.remove(id);
-		List<Ticket> wrapThis = DB.getAll();
+		List<Ticket> wrapThis = DB.findAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 	
@@ -41,7 +41,7 @@ public class TicketRest {
 	@Produces("application/json")
 	public Response updateTicket(Ticket ticket, @PathParam("id") int id){
 		DB.update(ticket, id);
-		List<Ticket> wrapThis = DB.getAll();
+		List<Ticket> wrapThis = DB.findAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 	
@@ -50,8 +50,8 @@ public class TicketRest {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response addTicket(Ticket ticket){
-		DB.add(ticket);;
-		List<Ticket> wrapThis = DB.getAll();
+		DB.persist(ticket);;
+		List<Ticket> wrapThis = DB.findAll();
 		return Response.status(200).entity(wrapThis).build();
 	}
 

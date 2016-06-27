@@ -24,7 +24,7 @@ public class AnimauxManager implements IAnimaux {
 		return AnimauxList.get(index);
 	}
 
-	public List<Animaux> getAll() {
+	public List<Animaux> findAll() {
 		return AnimauxList;
 	}
 

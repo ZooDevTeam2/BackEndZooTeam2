@@ -31,7 +31,7 @@ public class TicketManager implements ITicket {
 	}
 
 	@Override
-	public List<Ticket> getAll() {
+	public List<Ticket> findAll() {
 		return ListTicket;
 	}
 
