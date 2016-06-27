@@ -1,6 +1,7 @@
 package com.lunaret_seb.hb_lunaret_seb_zoo.stock;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -29,9 +30,9 @@ public class StockService {
 	@GET
 	@Path("/stocks")
 	@Produces({ "application/json" })
-	public List<Stock> getStocks(){
+	public Collection<Stock> getStocks(){
 		//For the moment, the list is hard written, we need the DB now ...
-		List<Stock> stockList = stockManager.getAll();
+		Collection<Stock> stockList = stockManager.getAll();
 		return stockList;
 	}
 	
@@ -39,7 +40,7 @@ public class StockService {
 	@Path("/stocks/{id}")
 	@Produces({ "application/json" })
 	public Stock detailStock(@PathParam("id") int id){
-        Stock selectedStock = (Stock) stockManager.getByIndex(id);
+        Stock selectedStock = (Stock) stockManager.getById(id);
 		return selectedStock;
 	}
 		
