@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Stateful;
 
 @Stateful
-public class StockManager implements IStock {
+public class StockManager implements IStockManager {
 
 	private static List<Stock> stockList;
 
