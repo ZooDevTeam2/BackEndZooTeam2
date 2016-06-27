@@ -1,14 +1,21 @@
 package com.lunaret_seb.hb_lunaret_seb_zoo.stock;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 //XmlRootElement is necessary to use this java class for xlm root element in xlm forms
 
 @XmlRootElement
+@Entity
 public class Stock {
 	private String name;
     private int quantities;
     private int maximum;
+    
+    @Id
+    @GeneratedValue
     private int id;
     
     //Empty constructor for the construction of xml
