@@ -1,56 +1,44 @@
 package com.lunaret_seb.hb_lunaret_seb_zoo.stock;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 
-@Stateful
-public class StockManager implements IStock {
+import com.lunaret_seb.hb_lunaret_seb_zoo.jpa.StockDao;
 
+@Stateless
+public class StockManager implements IStockManager {
+
+	@Inject
+	private StockDao stockDao;
+	
 	private static List<Stock> stockList;
 
-	public static List<Stock> getStockList() {
-		return stockList;
+	@Override
+	public Collection <Stock> getAll() {
+		return stockDao.findAll();
 	}
 
-	public static void setStockList(List<Stock> newStockList) {
-		stockList = newStockList;
+	@Override
+	public Stock getById(long id) {
+		 return stockDao.findById(id);
 	}
 
-	public StockManager() {
-		stockList = new ArrayList<Stock>();
-		stockList.add(new Stock("Carotte",300,500,1));
-		stockList.add(new Stock("Viande",300,1000,2));
-		stockList.add(new Stock("Poisson",120,700,3));
+	@Override
+	public void add(Stock stock) {
+	stockDao.persist(stock);
 	}
+
+	@Override
+	public void modify(Stock stock) {
+		stockDao.persist(stock);
+	}
+	@Override
+	public void delete(Stock stock) {
+		stockDao.remove(stock);
+	}
+
 	
-	
-	@Override
-	public Object getByIndex(int index) {
-		Stock selectedStock = stockList.get(index-1);
-        //-1 is used in this case to put in the same specification
-        //the index in the list (0 to infinite) and the id (1 to infinite)
-        //number to the same level
-		return selectedStock;
-	}
-
-	@Override
-	public List getAll() {
-		return stockList;
-	}
-
-	@Override
-	public void add(Object obj) {	
-	}
-
-	@Override
-	public void update(Object obj, int position) {
-
-	}
-
-	@Override
-	public void remove(int position) {
-
-	}
 
 }

@@ -35,15 +35,15 @@ public class TicketRest {
 		return Response.status(200).entity(wrapThis).build();
 	}
 	
-	@PUT
-	@Path("/tickets/update/")
-	@Consumes("application/json")
-	@Produces("application/json")
-	public Response updateTicket(Ticket ticket, @PathParam("id") int id){
-		DB.update(ticket, id);
-		List<Ticket> wrapThis = DB.getAll();
-		return Response.status(200).entity(wrapThis).build();
-	}
+//	@PUT
+//	@Path("/tickets/update/")
+//	@Consumes("application/json")
+//	@Produces("application/json")
+//	public Response updateTicket(Ticket ticket, @PathParam("id") int id){
+//		DB.update(ticket, id);
+//		List<Ticket> wrapThis = DB.getAll();
+//		return Response.status(200).entity(wrapThis).build();
+//	}
 	
 	@POST
 	@Path("/tickets/add/")
